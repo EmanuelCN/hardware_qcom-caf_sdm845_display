@@ -57,6 +57,7 @@ using ::android::hardware::hidl_vec;
 using ::android::hidl::base::V1_0::DebugInfo;
 using ::android::hidl::base::V1_0::IBase;
 using ::android::sp;
+using ::vendor::qti::hardware::display::mapper::V1_1::IQtiMapper;
 using gralloc::BufferManager;
 
 using IMapper_2_1 = android::hardware::graphics::mapper::V2_1::IMapper;
@@ -88,7 +89,6 @@ class QtiMapper : public IQtiMapper {
   Return<void> getTransportSize(void* buffer, IMapper_2_1::getTransportSize_cb hidl_cb) override;
   Return<void> createDescriptor_2_1(const BufferDescriptorInfo_2_1& descriptorInfo,
                                     createDescriptor_2_1_cb _hidl_cb) override;
-  // Method from V1_0::IQtiMapper
   Return<void> getMapSecureBufferFlag(void *buffer, getMapSecureBufferFlag_cb _hidl_cb) override;
   Return<void> getInterlacedFlag(void *buffer, getInterlacedFlag_cb _hidl_cb) override;
   Return<void> getCustomDimensions(void *buffer, getCustomDimensions_cb _hidl_cb) override;
