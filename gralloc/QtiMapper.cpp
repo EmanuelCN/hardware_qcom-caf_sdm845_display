@@ -40,7 +40,6 @@ namespace qti {
 namespace hardware {
 namespace display {
 namespace mapper {
-namespace V1_1 {
 namespace implementation {
 
 using gralloc::BufferInfo;
@@ -294,7 +293,6 @@ IQtiMapper *HIDL_FETCH_IQtiMapper(const char * /* name */) {
 }
 
 }  // namespace implementation
-}  // namespace V1_1
 }  // namespace mapper
 }  // namespace display
 }  // namespace hardware
