@@ -41,7 +41,6 @@ namespace qti {
 namespace hardware {
 namespace display {
 namespace mapper {
-namespace V1_1 {
 namespace implementation {
 
 using ::android::sp;
@@ -64,7 +63,6 @@ using ::vendor::qti::hardware::display::mapperextensions::V1_0::IQtiMapperExtens
 using ::vendor::qti::hardware::display::mapperextensions::V1_0::implementation::QtiMapperExtensions;
 
 using IMapper_2_1 = android::hardware::graphics::mapper::V2_1::IMapper;
-using ::vendor::qti::hardware::display::mapper::V1_1::IQtiMapper;
 using BufferDescriptorInfo_2_0 =
 android::hardware::graphics::mapper::V2_0::IMapper::BufferDescriptorInfo;
 using BufferDescriptorInfo_2_1 =
@@ -109,7 +107,6 @@ class QtiMapper : public IQtiMapper {
 extern "C" IMapper_2_1 *HIDL_FETCH_IMapper(const char *name);
 extern "C" IQtiMapper *HIDL_FETCH_IQtiMapper(const char *name);
 }  // namespace implementation
-}  // namespace V1_1
 }  // namespace mapper
 }  // namespace display
 }  // namespace hardware
