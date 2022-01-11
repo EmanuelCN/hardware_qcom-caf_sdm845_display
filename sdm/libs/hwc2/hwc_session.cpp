@@ -40,6 +40,7 @@
 #include "hwc_buffer_allocator.h"
 #include "hwc_session.h"
 #include "hwc_debugger.h"
+#include <processgroup/processgroup.h>
 
 #define __CLASS__ "HWCSession"
 
@@ -571,6 +572,14 @@ int32_t HWCSession::PresentDisplay(hwc2_device_t *device, hwc2_display_t display
   HWCSession *hwc_session = static_cast<HWCSession *>(device);
   auto status = HWC2::Error::BadDisplay;
   DTRACE_SCOPED();
+
+  thread_local bool setTaskProfileDone = false;
+  if (setTaskProfileDone == false) {
+        if (!SetTaskProfiles(gettid(), {"SFMainPolicy"})) {
+          DLOGW("Failed to add `%d` into SFMainPolicy", gettid());
+      }
+      setTaskProfileDone = true;
+  }
 
   if (display >= HWCCallbacks::kNumDisplays) {
     return HWC2_ERROR_BAD_DISPLAY;
